@@ -1,0 +1,31 @@
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <%= image_tag "cinema.png", alt: "Cinema Logo" %>
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <%= link_to "New list", new_list_path %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+    <h1>Keep your movies organized</h1>
+    <p>Don't waste time and enjoy a good movie session</p>
+    <div class="card-list">
+      <div class="card-list-infos">
+          <% @lists.each do |list| %>
+            <%= image_tag list.image_url %>
+            <%= link_to list.name, list_path(list) %>
+          <% end %>
+      </div>
+    </div>
+</div>
