@@ -1,7 +1,13 @@
-<div class="form-design">
+<div class="container-form">
+  <h1>New List</h1>
+
   <%= simple_form_for(@list) do |f| %>
+  <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :image_url %>
-    <%= f.submit %>
+  </div>
+  <div class="form-actions">
+    <%= f.submit "Submit list", class: "btn btn-dark" %>
+  </div>
   <% end %>
 </div>
