@@ -1,38 +1,141 @@
-.card-list p {
-  font-size: 20px;
-  opacity: 0.8;
-  color: rgba(128, 128, 128, 0.014);
-  margin-top: 10px;
-}
-
-.card-list a {
+.cards a {
   text-decoration: none;
   margin-top: 10px;
-  color: rgba(0, 0, 0, 0.732);
+  color: white;
   font-weight: bold;
+  font-size: 25px;
+  text-shadow: 1px 1px 1px white;
 }
 
-.card-list {
-  transition: width 2s linear 1s;
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  height: 350px;
+  margin-top: 100px;
+}
+
+.card-category {
   display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
   align-items: center;
-  height: 400px;
+  justify-content: center;
 }
 
-.card.card-list-infos {
+.card-category {
+  background-repeat:no-repeat;
+  background-position: center;
+  background-size: cover;
+  border-radius: 5px;
+}
 
-  width: 200px;
-  border-radius: 3px;
-  box-shadow: 0 0 5px rgb(230,230,230);
-  text-align: center;
-  padding: 20px;
-  border: 1px solid rgb(230,230,230);
+.card-product {
+  overflow: hidden;
+  height: 120px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  width: 500px;
+  margin: 0 16px 0 16px;
 }
 
-.card-list-infos img {
-    width: 150px;
+.card-product img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
+
+.movies_cards {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+#bookmark-text {
+  color: black;
+  opacity: 0.9;
+  font-size: 14px;
+}
+
+.card-product a {
+  text-decoration: none;
+  font-size: 12px;
+  opacity: .7;
+  color: rgb(86, 14, 14);
+}
+
+.creation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px auto;
+}
+
+.creation a {
+  text-decoration: none;
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  font-size: 25px;
+  padding: 15px 25px;
+  background-color: rgb(161, 16, 16);
+  border-radius: 5px;
+}
+
+.creation a:hover {
+  background-color: rgb(234, 128, 128);
+}
+
+// Smallest device
+@media (min-width: 100px) and (max-width: 575px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+  .cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+// Extra large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
 }

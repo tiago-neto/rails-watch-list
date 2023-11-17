@@ -10,6 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
           <li class="nav-item active">
+            <%= link_to "My lists", lists_path %>
             <%= link_to "New list", new_list_path %>
           </li>
       </ul>
@@ -20,12 +21,14 @@
 <div class="container">
     <h1>Keep your movies organized</h1>
     <p>Don't waste time and enjoy a good movie session</p>
-    <div class="card-list">
-      <div class="card-list-infos">
-          <% @lists.each do |list| %>
-            <%= image_tag list.image_url %>
-            <%= link_to list.name, list_path(list) %>
-          <% end %>
-      </div>
+    <%= link_to "Create a new list", new_list_path %>
+
+
+<div class="cards">
+  <% @lists.each do |list| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= list.image_url %>)">
+       <%= link_to list.name, list_path(list) %>
     </div>
+  <% end %>
+</div>
 </div>

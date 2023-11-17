@@ -1,16 +1,43 @@
-<h2><%= @list.name %></h2>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">
+      <%= image_tag "cinema.png", alt: "Cinema Logo" %>
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-<p><strong>Movies</strong></p>
-<ul class="list-group">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+          <li class="nav-item active">
+            <%= link_to "My lists", lists_path %>
+            <%= link_to "New list", new_list_path %>
+          </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="banner" style='background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url("https://organicsnewsbrasil.com.br/wp-content/uploads/2016/11/cinema-cartoon.jpg");'>
+  <div class="container">
+    <h1><%= @list.name %></h1>
+  </div>
+</div>
+
+
+<div class="movies_cards">
   <% @list.bookmarks.each do |bookmark| %>
-  <li class="list-group-item"><%= bookmark.movie.title %> <%= bookmark.movie.rating %></li>
-  <li class="list-group-item"><%= bookmark.movie.overview %> </li>
-  <li class="list-group-item"><%= bookmark.comment %>  <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></li>
+    <div class="card-product">
+      <img src= <%= bookmark.movie.poster_url %> />
+      <div class="card-product-infos">
+        <h2><%= bookmark.movie.title %> - <%= bookmark.movie.rating %> <i class="fa-solid fa-star" style="color: #ffd43b;"></i></h2>
+        <p><%= bookmark.movie.overview %></p>
+        <p id="bookmark-text"><i class="fa-solid fa-quote-left"></i> <%= bookmark.comment %>  <%= link_to "Delete", bookmark_path(bookmark), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}%></p>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
 
-
-
+<div class="creation">
 <%= link_to "Create a new movie",   new_list_bookmark_path(@list) %>
-
-<i class="fa-solid fa-table-list"></i> <%= link_to "See all lists", lists_path %>
+</div>
